@@ -5,7 +5,7 @@ public class IGTokenService
 
     public async Task<string> GetTokenAsync()
     {
-        if (_token == null || DateTime.UtcNow >= _expiresAt)
+        if (_token == null)
         {
             _token = await FetchTokenFromIGAsync();
             _expiresAt = DateTime.UtcNow.AddMinutes(5);
