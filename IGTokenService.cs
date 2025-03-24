@@ -14,7 +14,9 @@ public class IGTokenService
 
     public async Task<string> GetTokenAsync()
     {
-         _logger.LogInformation($"[IGTokenService] Instance ID: {_instanceId}");
+        _logger.LogInformation($"[IGTokenService] Instance ID: {_instanceId}");
+
+        _logger.LogInformation($"[_token value before check]: {_token ?? "null"}");
 
         if (_token == null)
         {
