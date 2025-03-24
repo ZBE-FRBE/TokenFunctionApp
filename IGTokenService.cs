@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 public class IGTokenService
 {
 
@@ -14,7 +15,7 @@ public class IGTokenService
     public async Task<string> GetTokenAsync()
     {
          _logger.LogInformation($"[IGTokenService] Instance ID: {_instanceId}");
-         
+
         if (_token == null)
         {
             _token = await FetchTokenFromIGAsync();
