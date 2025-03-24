@@ -18,7 +18,7 @@ public class IGTokenService
 
         _logger.LogInformation($"[_token value before check]: {_token ?? "null"}");
 
-        if (_token == null)
+        if (_token == null || DateTime.UtcNow >= _expiresAt)
         {
             _token = await FetchTokenFromIGAsync();
             _expiresAt = DateTime.UtcNow.AddMinutes(5);
