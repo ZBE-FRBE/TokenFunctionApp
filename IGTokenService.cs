@@ -1,10 +1,13 @@
 public class IGTokenService
 {
+
+    private readonly string _instanceId = Guid.NewGuid().ToString();
     private string? _token;
     private DateTime _expiresAt;
 
     public async Task<string> GetTokenAsync()
     {
+        Console.WriteLine($"[IGTokenService] Instance ID: {_instanceId}");
         if (_token == null)
         {
             _token = await FetchTokenFromIGAsync();
